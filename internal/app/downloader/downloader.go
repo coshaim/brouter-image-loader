@@ -19,7 +19,6 @@ func StartDownload() {
 	err := gonfig.GetConf("configs/downloader.json", &config)
 	if err != nil {
 		log.Fatal(err)
-		os.Exit(500)
 	}
 
 	fmt.Printf("Start requesting segments4 data from %s\n", config.Segments4URL)
@@ -27,7 +26,6 @@ func StartDownload() {
 
 	if err != nil {
 		log.Fatal(err)
-		defer os.Exit(500)
 	}
 
 	defer resp.Body.Close()
